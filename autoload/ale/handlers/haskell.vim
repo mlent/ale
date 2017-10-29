@@ -31,8 +31,7 @@ function! ale#handlers#haskell#HandleGHCFormat(buffer, lines) abort
             call add(l:corrected_lines, l:line)
         else
             if len(l:corrected_lines) > 0
-                let l:line = substitute(l:line, '\v^\s+', ' ', '')
-                let l:corrected_lines[-1] .= l:line
+                let l:corrected_lines[-1] .= l:line . "\n"
             endif
         endif
     endfor
